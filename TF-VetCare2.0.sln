@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35931.197 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Datos", "Datos\Datos.csproj", "{FB6698A2-0114-4028-8197-5D29C6DF9BB0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Negocio", "Negocio\Negocio.csproj", "{633E0744-9BB2-49E7-B050-C6797835399E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Presentacion", "Presentacion\Presentacion.csproj", "{C9A58D2C-8A35-487D-A107-1FA483F47DDC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FB6698A2-0114-4028-8197-5D29C6DF9BB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB6698A2-0114-4028-8197-5D29C6DF9BB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB6698A2-0114-4028-8197-5D29C6DF9BB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB6698A2-0114-4028-8197-5D29C6DF9BB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{633E0744-9BB2-49E7-B050-C6797835399E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{633E0744-9BB2-49E7-B050-C6797835399E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{633E0744-9BB2-49E7-B050-C6797835399E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{633E0744-9BB2-49E7-B050-C6797835399E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9A58D2C-8A35-487D-A107-1FA483F47DDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9A58D2C-8A35-487D-A107-1FA483F47DDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9A58D2C-8A35-487D-A107-1FA483F47DDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9A58D2C-8A35-487D-A107-1FA483F47DDC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {539D7109-2559-40C8-974A-0F6EA6816CD1}
+	EndGlobalSection
+EndGlobal
