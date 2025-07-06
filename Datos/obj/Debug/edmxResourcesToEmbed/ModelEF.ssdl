@@ -1,0 +1,354 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ModelEF.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Auditoria">
+    <Key>
+      <PropertyRef Name="IDAuditoria" />
+    </Key>
+    <Property Name="IDAuditoria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Tabla" Type="varchar" MaxLength="50" />
+    <Property Name="Accion" Type="varchar" MaxLength="20" />
+    <Property Name="IDRegistro" Type="int" />
+    <Property Name="IDUsuario" Type="int" Nullable="false" />
+    <Property Name="Fecha" Type="datetime" Nullable="false" />
+    <Property Name="ValoresAnteriores" Type="text" />
+    <Property Name="ValoresNuevos" Type="text" />
+  </EntityType>
+  <EntityType Name="Cita">
+    <Key>
+      <PropertyRef Name="IDCita" />
+    </Key>
+    <Property Name="IDCita" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FechaHora" Type="datetime" Nullable="false" />
+    <Property Name="Motivo" Type="varchar" MaxLength="100" />
+    <Property Name="Diagnostico" Type="varchar" MaxLength="255" />
+    <Property Name="IDMascota" Type="int" Nullable="false" />
+    <Property Name="IDVeterinario" Type="int" Nullable="false" />
+    <Property Name="IDTipoCita" Type="int" Nullable="false" />
+    <Property Name="IDEstadoCita" Type="int" Nullable="false" />
+    <Property Name="FechaCreacion" Type="datetime" Nullable="false" />
+    <Property Name="FechaModificacion" Type="datetime" Nullable="false" />
+    <Property Name="Eliminado" Type="bit" Nullable="false" />
+    <Property Name="IDUsuarioRegistro" Type="int" />
+    <Property Name="IDUsuarioModificacion" Type="int" />
+    <Property Name="Costo" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="DuracionEstimada" Type="int" />
+  </EntityType>
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="IDCliente" />
+    </Key>
+    <Property Name="IDCliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" />
+    <Property Name="Apellido" Type="varchar" MaxLength="50" />
+    <Property Name="DNI" Type="varchar" MaxLength="20" />
+    <Property Name="Telefono" Type="varchar" MaxLength="20" />
+    <Property Name="Direccion" Type="varchar" MaxLength="100" />
+    <Property Name="FechaCreacion" Type="datetime" Nullable="false" />
+    <Property Name="FechaModificacion" Type="datetime" Nullable="false" />
+    <Property Name="Eliminado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Especie">
+    <Key>
+      <PropertyRef Name="IDEspecie" />
+    </Key>
+    <Property Name="IDEspecie" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EstadoCita">
+    <Key>
+      <PropertyRef Name="IDEstadoCita" />
+    </Key>
+    <Property Name="IDEstadoCita" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Mascota">
+    <Key>
+      <PropertyRef Name="IDMascota" />
+    </Key>
+    <Property Name="IDMascota" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IDEspecie" Type="int" Nullable="false" />
+    <Property Name="Edad" Type="int" />
+    <Property Name="Sexo" Type="char" MaxLength="1" />
+    <Property Name="IDCliente" Type="int" Nullable="false" />
+    <Property Name="FechaCreacion" Type="datetime" Nullable="false" />
+    <Property Name="FechaModificacion" Type="datetime" Nullable="false" />
+    <Property Name="Eliminado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MetodoPago">
+    <Key>
+      <PropertyRef Name="IDMetodoPago" />
+    </Key>
+    <Property Name="IDMetodoPago" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Metodo" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Pago">
+    <Key>
+      <PropertyRef Name="IDPago" />
+    </Key>
+    <Property Name="IDPago" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FechaPago" Type="datetime" Nullable="false" />
+    <Property Name="Monto" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="IDCita" Type="int" Nullable="false" />
+    <Property Name="IDMetodoPago" Type="int" Nullable="false" />
+    <Property Name="FechaCreacion" Type="datetime" Nullable="false" />
+    <Property Name="FechaModificacion" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Rol">
+    <Key>
+      <PropertyRef Name="IDRol" />
+    </Key>
+    <Property Name="IDRol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TipoCita">
+    <Key>
+      <PropertyRef Name="IDTipoCita" />
+    </Key>
+    <Property Name="IDTipoCita" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="IDUsuario" />
+    </Key>
+    <Property Name="IDUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NombreUsuario" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ContrasenaHash" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="IDRol" Type="int" Nullable="false" />
+    <Property Name="Activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Veterinario">
+    <Key>
+      <PropertyRef Name="IDVeterinario" />
+    </Key>
+    <Property Name="IDVeterinario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Especialidad" Type="varchar" MaxLength="50" />
+    <Property Name="Telefono" Type="varchar" MaxLength="20" />
+    <Property Name="IDUsuario" Type="int" />
+  </EntityType>
+  <Association Name="FK__Auditoria__IDUsu__59FA5E80">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="Auditoria" Type="Self.Auditoria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="IDUsuario" />
+      </Principal>
+      <Dependent Role="Auditoria">
+        <PropertyRef Name="IDUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Cita__IDEstadoCi__534D60F1">
+    <End Role="EstadoCita" Type="Self.EstadoCita" Multiplicity="1" />
+    <End Role="Cita" Type="Self.Cita" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EstadoCita">
+        <PropertyRef Name="IDEstadoCita" />
+      </Principal>
+      <Dependent Role="Cita">
+        <PropertyRef Name="IDEstadoCita" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Cita__IDMascota__5070F446">
+    <End Role="Mascota" Type="Self.Mascota" Multiplicity="1" />
+    <End Role="Cita" Type="Self.Cita" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Mascota">
+        <PropertyRef Name="IDMascota" />
+      </Principal>
+      <Dependent Role="Cita">
+        <PropertyRef Name="IDMascota" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Cita__IDTipoCita__52593CB8">
+    <End Role="TipoCita" Type="Self.TipoCita" Multiplicity="1" />
+    <End Role="Cita" Type="Self.Cita" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoCita">
+        <PropertyRef Name="IDTipoCita" />
+      </Principal>
+      <Dependent Role="Cita">
+        <PropertyRef Name="IDTipoCita" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Cita__IDVeterina__5165187F">
+    <End Role="Veterinario" Type="Self.Veterinario" Multiplicity="1" />
+    <End Role="Cita" Type="Self.Cita" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Veterinario">
+        <PropertyRef Name="IDVeterinario" />
+      </Principal>
+      <Dependent Role="Cita">
+        <PropertyRef Name="IDVeterinario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Mascota__IDClien__4BAC3F29">
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+    <End Role="Mascota" Type="Self.Mascota" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="IDCliente" />
+      </Principal>
+      <Dependent Role="Mascota">
+        <PropertyRef Name="IDCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Mascota__IDEspec__4CA06362">
+    <End Role="Especie" Type="Self.Especie" Multiplicity="1" />
+    <End Role="Mascota" Type="Self.Mascota" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Especie">
+        <PropertyRef Name="IDEspecie" />
+      </Principal>
+      <Dependent Role="Mascota">
+        <PropertyRef Name="IDEspecie" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Pago__IDCita__5629CD9C">
+    <End Role="Cita" Type="Self.Cita" Multiplicity="1" />
+    <End Role="Pago" Type="Self.Pago" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cita">
+        <PropertyRef Name="IDCita" />
+      </Principal>
+      <Dependent Role="Pago">
+        <PropertyRef Name="IDCita" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Pago__IDMetodoPa__571DF1D5">
+    <End Role="MetodoPago" Type="Self.MetodoPago" Multiplicity="1" />
+    <End Role="Pago" Type="Self.Pago" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MetodoPago">
+        <PropertyRef Name="IDMetodoPago" />
+      </Principal>
+      <Dependent Role="Pago">
+        <PropertyRef Name="IDMetodoPago" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Usuario__IDRol__4222D4EF">
+    <End Role="Rol" Type="Self.Rol" Multiplicity="1" />
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rol">
+        <PropertyRef Name="IDRol" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="IDRol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Veterinar__IDUsu__44FF419A">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Veterinario" Type="Self.Veterinario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="IDUsuario" />
+      </Principal>
+      <Dependent Role="Veterinario">
+        <PropertyRef Name="IDUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cita_UsuarioModificacion">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Cita" Type="Self.Cita" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="IDUsuario" />
+      </Principal>
+      <Dependent Role="Cita">
+        <PropertyRef Name="IDUsuarioModificacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cita_UsuarioRegistro">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Cita" Type="Self.Cita" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="IDUsuario" />
+      </Principal>
+      <Dependent Role="Cita">
+        <PropertyRef Name="IDUsuarioRegistro" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ModelEFStoreContainer">
+    <EntitySet Name="Auditoria" EntityType="Self.Auditoria" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cita" EntityType="Self.Cita" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Especie" EntityType="Self.Especie" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EstadoCita" EntityType="Self.EstadoCita" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Mascota" EntityType="Self.Mascota" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MetodoPago" EntityType="Self.MetodoPago" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Pago" EntityType="Self.Pago" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Rol" EntityType="Self.Rol" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoCita" EntityType="Self.TipoCita" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Veterinario" EntityType="Self.Veterinario" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Auditoria__IDUsu__59FA5E80" Association="Self.FK__Auditoria__IDUsu__59FA5E80">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Auditoria" EntitySet="Auditoria" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Cita__IDEstadoCi__534D60F1" Association="Self.FK__Cita__IDEstadoCi__534D60F1">
+      <End Role="EstadoCita" EntitySet="EstadoCita" />
+      <End Role="Cita" EntitySet="Cita" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Cita__IDMascota__5070F446" Association="Self.FK__Cita__IDMascota__5070F446">
+      <End Role="Mascota" EntitySet="Mascota" />
+      <End Role="Cita" EntitySet="Cita" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Cita__IDTipoCita__52593CB8" Association="Self.FK__Cita__IDTipoCita__52593CB8">
+      <End Role="TipoCita" EntitySet="TipoCita" />
+      <End Role="Cita" EntitySet="Cita" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Cita__IDVeterina__5165187F" Association="Self.FK__Cita__IDVeterina__5165187F">
+      <End Role="Veterinario" EntitySet="Veterinario" />
+      <End Role="Cita" EntitySet="Cita" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Mascota__IDClien__4BAC3F29" Association="Self.FK__Mascota__IDClien__4BAC3F29">
+      <End Role="Cliente" EntitySet="Cliente" />
+      <End Role="Mascota" EntitySet="Mascota" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Mascota__IDEspec__4CA06362" Association="Self.FK__Mascota__IDEspec__4CA06362">
+      <End Role="Especie" EntitySet="Especie" />
+      <End Role="Mascota" EntitySet="Mascota" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Pago__IDCita__5629CD9C" Association="Self.FK__Pago__IDCita__5629CD9C">
+      <End Role="Cita" EntitySet="Cita" />
+      <End Role="Pago" EntitySet="Pago" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Pago__IDMetodoPa__571DF1D5" Association="Self.FK__Pago__IDMetodoPa__571DF1D5">
+      <End Role="MetodoPago" EntitySet="MetodoPago" />
+      <End Role="Pago" EntitySet="Pago" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Usuario__IDRol__4222D4EF" Association="Self.FK__Usuario__IDRol__4222D4EF">
+      <End Role="Rol" EntitySet="Rol" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Veterinar__IDUsu__44FF419A" Association="Self.FK__Veterinar__IDUsu__44FF419A">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Veterinario" EntitySet="Veterinario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cita_UsuarioModificacion" Association="Self.FK_Cita_UsuarioModificacion">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Cita" EntitySet="Cita" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cita_UsuarioRegistro" Association="Self.FK_Cita_UsuarioRegistro">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Cita" EntitySet="Cita" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
